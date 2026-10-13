@@ -85,6 +85,15 @@ class Rules(unittest.TestCase):
                 name,
             )
 
+    def test_dates_and_other_people_stay_the_users(self):
+        for name in NAMES:
+            text = body(name)
+            for sentence in (
+                "do not add a year, a weekday or a calendar date they did not give",
+                "How another person will act (an employer, a landlord, a seller, a partner) is never a fact",
+            ):
+                self.assertIn(sentence, text, f"{name}: missing {sentence!r}")
+
     def test_each_skill_keeps_its_own_load_bearing_rule(self):
         for name, sentences in {
             "decide-compare": [
