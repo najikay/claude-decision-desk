@@ -1,6 +1,6 @@
 ---
 name: decide-compare
-description: "Compare named options with a weighted matrix built only from what you tell it: your criteria, your weights (change any and it rescores), every score with its source, and what would flip the result. Use when the user says \"help me decide between\", \"offer A or offer B\", \"which course / flat / laptop should I pick\" or \"X or Y?\" about real alternatives. Not for one yes/no choice (decide-gonogo), untangling the question first (decide-frame), or research methods or tools (Research Desk)."
+description: "Compare named options in a weighted matrix built only from what you tell it: your criteria, your weights (change any and it rescores), every score with its source, and what would flip the result. Use when the user says \"help me decide between\", \"offer A or offer B\", \"which laptop / flat / course should I pick\" or \"X or Y?\", also before any options or facts are given. Not for one yes/no choice (decide-gonogo), untangling the question (decide-frame), or research methods or tools (Research Desk)."
 ---
 
 # Compare named options

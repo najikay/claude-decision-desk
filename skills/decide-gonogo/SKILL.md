@@ -1,6 +1,6 @@
 ---
 name: decide-gonogo
-description: "A clear yes or no on one thing (take it, buy it, quit it, ship it) from what you tell it: what you gain and lose, whether it can be undone, what waiting costs, the cheapest test first, and the conditions that make it a yes. Use when the user says \"should I\", \"is it worth it\", \"am I crazy to\", \"go or no-go\" about one option. Not for choosing between several options (decide-compare). Medical, legal, tax or investment calls it does not decide: it frames them for the professional."
+description: "A clear yes or no on one thing (take it, buy it, quit it, ship it) from what you tell it: what you gain and lose, whether it can be undone, what waiting costs, the cheapest test first, and the conditions that make it a yes. Use when the user says \"should I\", \"is it worth it\", \"am I crazy to\", \"go or no-go\" about one option, also \"should I stop my medication\" or \"should I sign this\" (it frames those for the professional, never decides). Not for choosing between several options (decide-compare)."
 ---
 
 # Go or no-go on one option
