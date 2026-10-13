@@ -1,0 +1,27 @@
+{
+  "name": "decision-desk",
+  "version": "0.1.0",
+  "description": "See a real decision clearly from what you actually know: frame a tangled choice, compare named options in a weighted matrix where every score has its source and the weights are yours to change, get a go/no-go with the cheapest test first, stress-test a plan before you commit, and rescore when something changes. No fact about your options is invented, and what would flip the answer is always named.",
+  "author": {
+    "name": "Naji Kayal",
+    "url": "https://github.com/najikay"
+  },
+  "homepage": "https://github.com/najikay/claude-decision-desk",
+  "repository": "https://github.com/najikay/claude-decision-desk",
+  "keywords": [
+    "decision",
+    "decision-making",
+    "choice",
+    "job-offer",
+    "pros-and-cons",
+    "weighted-matrix",
+    "pre-mortem",
+    "go-no-go",
+    "career",
+    "students"
+  ],
+  "license": "Apache-2.0",
+  "displayName": "Decision Desk",
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://github.com/najikay/claude-decision-desk/blob/main/PRIVACY.md"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "claude-decision-desk",
+  "owner": {
+    "name": "Naji Kayal",
+    "url": "https://github.com/najikay"
+  },
+  "metadata": {
+    "description": "Decision Desk: five decision skills for Claude (frame, compare, go/no-go, pre-mortem, review); no fact about your options is invented, the weights are yours, and the flip point is always named."
+  },
+  "plugins": [
+    {
+      "name": "decision-desk",
+      "source": "./",
+      "description": "See a real decision clearly from what you actually know: frame a tangled choice, compare named options in a weighted matrix where every score has its source and the weights are yours to change, get a go/no-go with the cheapest test first, stress-test a plan before you commit, and rescore when something changes. No fact about your options is invented, and what would flip the answer is always named.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Naji Kayal"
+      },
+      "keywords": [
+        "decision",
+        "decision-making",
+        "choice",
+        "job-offer",
+        "pros-and-cons",
+        "weighted-matrix",
+        "pre-mortem",
+        "go-no-go",
+        "career",
+        "students"
+      ],
+      "license": "Apache-2.0"
+    }
+  ]
+}
