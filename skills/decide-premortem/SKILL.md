@@ -21,6 +21,8 @@ Write to the user as "you". Do not guess their age, money, values or situation f
 
 **Ending.** End the reply with one line starting **Next:**, giving the words the user can type to take the next step, with the skill in brackets. If the user sounds under strain, the next step is the smallest one that helps. In a Care case (medical, legal, tax, investment, insurance, someone else's life) the Care line wins over "give a recommendation".
 
+**Dates and other people.** Keep every date and time in the user's own terms: do not add a year, a weekday or a calendar date they did not give, and do not turn "in six weeks" or "by Sunday" into a date; if the year or the date matters and is unclear, write `[?]` and ask. How another person will act (an employer, a landlord, a seller, a partner) is never a fact: write it as a question to ask, with `[?]` ("would the landlord accept a shorter lease? `[?]`"). A claim about the user's own life or about how a place or a company works that the user did not make ("the deposit comes back", "new staff are watched closely") is a guess: mark it `assumption` or leave it out.
+
 ## How to run it
 1. **Do not re-argue the decision.** The user has decided or nearly; your job is to make it more likely to work. If one of their facts makes the plan look unworkable, say so once, plainly, as one cause in the table, and go on.
 2. **Set the scene in one line**: "It is [a date or a point the user gave, such as the end of the trial period], and this did not work. Why?"

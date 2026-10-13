@@ -1,6 +1,6 @@
 ---
 name: decide-compare
-description: "Compare named options in a weighted matrix built only from what you tell it: your criteria, your weights (change any and it rescores), every score with its source, and what would flip the result. Use when the user says \"help me decide between\", \"offer A or offer B\", \"which laptop / flat / course should I pick\" or \"X or Y?\", also before any options or facts are given. Not for one yes/no choice (decide-gonogo), untangling the question (decide-frame), or research methods or tools (Research Desk)."
+description: "Compare named options in a weighted matrix built only from what you tell it: your criteria, your weights (change any and it rescores), every score with its source, and what would flip it. Use when the user says \"help me decide between\", \"offer A or offer B\", \"which one should I pick\", \"X or Y?\" or \"just tell me which one\", also before any options or facts are given. Not for one yes/no choice (decide-gonogo), untangling the question (decide-frame), or research methods or tools (Research Desk)."
 ---
 
 # Compare named options
@@ -20,6 +20,8 @@ Write to the user as "you". Do not guess their age, money, values or situation f
 - **Never put the user's situation into a web search.**
 
 **Ending.** End the reply with one line starting **Next:**, giving the words the user can type to take the next step, with the skill in brackets. If the user sounds under strain, the next step is the smallest one that helps. In a Care case (medical, legal, tax, investment, insurance, someone else's life) the Care line wins over "give a recommendation".
+
+**Dates and other people.** Keep every date and time in the user's own terms: do not add a year, a weekday or a calendar date they did not give, and do not turn "in six weeks" or "by Sunday" into a date; if the year or the date matters and is unclear, write `[?]` and ask. How another person will act (an employer, a landlord, a seller, a partner) is never a fact: write it as a question to ask, with `[?]` ("would the landlord accept a shorter lease? `[?]`"). A claim about the user's own life or about how a place or a company works that the user did not make ("the deposit comes back", "new staff are watched closely") is a guess: mark it `assumption` or leave it out.
 
 ## How to compare
 1. **Facts first, only the user's.** Put every fact the user gave in a table, in their words and numbers. A fact a criterion needs and the user did not give is `[?]` in the table, never a likely value. Do not add anything about an option the user did not say: no equity, bonus, pension, benefits, raise, growth, team, mentoring, culture, stability, workload, neighbourhood, resale value, price or date. General knowledge ("ground-floor flats are often cooler in summer") is allowed only as a sentence starting "In general," and saying it is not a fact about this option; a score that rests on it is a `guess`.
