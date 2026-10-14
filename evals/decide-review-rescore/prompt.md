@@ -24,8 +24,8 @@ options: A: large company | B: 30-person company | wait: ask A for one more week
 dealbreakers: none named
 criteria and weights (yours to change): learning 5 | commute 4 | pay 2 | security 2 | timing 2
 scores: A 45 | B 60   (arithmetic shown above)
-flips if: the learning guesses reverse (A 5, B 2): A 55, B 50
-recommendation: B because it leads on commute and learning, your two heaviest weights
+flips if: no single change; nearest: B's learning guess at 1 ties it 45 to 45 (clear)
+recommendation: B because it leads on commute, your second-heaviest weight; it still leads with both learning guesses at 3
 first step (reversible): ask B for its start date in writing before 15 June
 chosen: [you fill this]
 revisit: [when B gives a start date]

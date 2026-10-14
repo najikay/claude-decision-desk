@@ -6,7 +6,7 @@ Five decision skills for Claude that work only from what you tell them. Untangle
 
 **Try it first:** type *help me decide between* and your two options with what you know about each, or *should I* and the one thing you are weighing.
 
-**The rule of this desk: no fact about your options is invented, the weights are yours to change, and what would flip the answer is always named.** Asked "offer A or offer B?", a plain assistant tends to fill in facts nobody gave it (equity, a bonus, "startups are risky"), to pick the weights silently, and to end with a confident verdict that hides how close it was. Here every fact about an option comes from you; where one is needed and missing you see `[?]`, and a score that rests on a guess says `guess`. The criteria and weights are proposed from what you said and are yours to change; change one and it rescores. Every comparison says in plain words which single change would reverse it, and by how much. You get a recommendation; the decision stays yours.
+**The rule of this desk: no fact about your options is invented, the weights are yours to change, and what would flip the answer is always named.** Asked "offer A or offer B?", a plain assistant tends to fill in facts nobody gave it (equity, a bonus, "startups are risky"), to pick the weights silently, and to end with a confident verdict that hides how close it was. Here every fact about an option comes from you; where one is needed and missing you see `[?]`, and a score that rests on a guess says `guess`. The criteria and weights are proposed from what you said and are yours to change; change one and it rescores. Every comparison says in plain words which single change would reverse it, and by how much, or that none would and what comes nearest. You get a recommendation; the decision stays yours.
 
 | Skill | Say | You get |
 |---|---|---|
@@ -30,14 +30,14 @@ options: A: large company | B: 30-person company | wait: ask A for one more week
 dealbreakers: none named
 criteria and weights (yours to change): learning 5 | commute 4 | pay 2 | security 2 | timing 2
 scores: A 45 | B 60   (arithmetic shown above)
-flips if: the learning guesses reverse (A 5, B 2): A 55, B 50
-recommendation: B because it leads on commute and learning, your two heaviest weights
+flips if: no single change; nearest: B's learning guess at 1 ties it 45 to 45 (clear)
+recommendation: B because it leads on commute, your second-heaviest weight; it still leads with both learning guesses at 3
 first step (reversible): ask B for its start date in writing before 15 June
 chosen: [you fill this]
 revisit: [when B gives a start date]
 ```
 
-`chosen:` is always left for you.
+`chosen:` is always left for you. When a recommendation rests on a guess, the reply says so and makes checking that guess the first step.
 
 ## Where it runs
 
@@ -60,9 +60,10 @@ The skills answer in the language you write in, tables and labels included, and 
 
 - Fill in a fact about your options: a salary, a bonus, a start date, a market price, what a company or a city is like. Missing facts are marked `[?]` with the cheapest way to find them out.
 - Build a matrix from nothing. Ask "which laptop should I buy?" with no options and it asks what you are choosing between and what matters.
-- Decide medical, legal, tax, investment or insurance questions. It frames the question and the facts to bring to the professional; asked whether to stop a medication, it says to talk to the prescriber before changing anything.
-- Weigh a decision that is someone else's to make (a partner's, a child's, an employee's) as if it were yours; it helps you frame the conversation instead.
-- Write `chosen:` for you, or pretend to certainty when you say "just tell me". You get the recommendation, the flip point, and the reminder that it is your call.
+- Decide what needs a professional's reading: a diagnosis, starting or stopping a medication or treatment, what a contract clause means, how something is taxed, which investment or insurance product to buy. It frames the question and the facts to bring to the professional; asked whether to stop a medication, it says to talk to the prescriber or a pharmacist before changing anything. Ordinary choices that involve a contract or money (accepting an offer, signing a lease, buying a car) are decided as usual, with "have the clause read" as the cheapest test when a clause is unclear.
+- Weigh a choice that involves hurting yourself or someone else. It answers you and points you to someone to talk to now and to a local emergency or crisis service. Gambling and betting are not this desk either.
+- Weigh a decision that belongs to another adult (a partner's job, a grown child's studies) as if it were yours; it helps you frame the conversation instead. Your own decisions that affect others (a young child's school, letting someone go) are weighed as usual.
+- Write `chosen:` for you, or pretend to certainty when you say "just tell me". You get the recommendation first, with the flip point and the reminder that it is your call.
 - Judge a past decision by its luck, or say you should have known something nobody could have known.
 - Put your situation into a web search.
 
@@ -74,7 +75,7 @@ EVALS_PLACEHOLDER
 
 ## Privacy
 
-A decision usually holds personal data: pay, rent, health, family, an employer's name. See [PRIVACY.md](PRIVACY.md): your situation stays in the chat; the plugin collects nothing and sends nothing anywhere. Give only the facts the decision needs; "company A" and a rounded figure work as well as the real ones.
+A decision usually holds personal data: pay, rent, health, family, an employer's name. See [PRIVACY.md](PRIVACY.md): the plugin collects nothing and adds no recipient; your chat goes only where it always does, to Anthropic under your Claude terms. Give only the facts the decision needs; "company A" and a rounded figure work as well as the real ones.
 
 ## Licence
 
