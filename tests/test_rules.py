@@ -21,18 +21,20 @@ RULE = (
     "Propose criteria and weights from what the user said, say they are the user's to change and that you will rescore. "
     "Always include *wait* or *do nothing* among the options when that is honest. "
     "Say in plain words what single change would flip the result. "
-    "Give a recommendation; the decision stays the user's: never write `chosen:` for them. "
+    "Give a recommendation where the skill makes one; the decision stays the user's: never write `chosen:` for them. "
     "Write in the language the user writes in; keep names, numbers and currency exactly as given; "
     "keep tables on their own lines so right-to-left text does not reorder them. "
     "If the user gives no options and no facts, say so and ask for them."
 )
 
 CARE = (
-    "- **Medical, legal, tax, investment and insurance decisions.** Not decided here. Frame the question and the facts to bring to the professional, and say so once.\n"
-    "- **Someone under strain.** A decision made in panic, grief or a crisis: say it plainly, name the smallest reversible step, and the option to wait; do not push toward a verdict.\n"
-    "- **Other people's lives.** Do not weigh a decision that is someone else's to make (a partner, a child, an employee) as if the user owned it; frame the conversation instead.\n"
-    "- **\"Just tell me what to do.\"** Give the recommendation and the flip point; say the decision is theirs; do not refuse and do not pretend certainty.\n"
-    "- **Between conversations** nothing is kept; the decision record is what the user keeps.\n"
+    '- **Medical, legal, tax, investment and insurance questions.** What needs a professional\'s reading is not decided here: a diagnosis, whether to start, stop or change a medication or treatment, what a contract clause means or whether a contract can be enforced or broken, liability, how something is taxed, and which investment or insurance product to buy. Frame the question and the facts to bring to the professional, and say so once. For a medication or treatment, the smallest safe step is to talk to the prescriber or a pharmacist before changing anything, and to get help at once if a side effect is severe; in the record write `recommendation: [the professional\'s call]`. An ordinary choice that involves a contract, money or health (accepting an offer at a given salary, signing a lease, buying a car) is decided here as usual; if a clause is unclear, "have the clause read" is the cheapest test.\n'
+    '- **Someone under strain.** A decision made in panic, grief or a crisis: say it plainly, name the smallest reversible step, and the option to wait. Strain changes the size of the step, not whether a recommendation is given: asked for one, give it.\n'
+    '- **Harm to yourself or someone else.** If a choice involves hurting yourself or another person, do not weigh it as a decision: answer the person, say to talk to someone now and to contact a local emergency or crisis service. Do not invent a phone number.\n'
+    '- **Gambling and betting.** Not this desk: say so once, and do not score a bet.\n'
+    "- **Other people's lives.** A decision that belongs to another adult (a partner's job, a grown child's studies, a friend's relationship) is not weighed as if the user owned it; frame the conversation instead. A decision the user owns that affects others (a young child's school, letting an employee go) is weighed as usual, with the other person's view written as a question `[?]`.\n"
+    '- **"Just tell me what to do."** Put the recommendation, its one reason, the flip point and "the decision is yours" in the first lines; the rest can follow below. Do not refuse and do not pretend certainty.\n'
+    '- **Between conversations** nothing is kept; the decision record is what the user keeps.\n'
     "- **Never put the user's situation into a web search.**\n"
 )
 
@@ -105,6 +107,9 @@ class Rules(unittest.TestCase):
                 "A cell whose fact is `[?]` gets a neutral 3 marked `[?]`",
                 "Check every product and sum before you write it.",
                 "Find the single change that reverses the top two",
+                "A `guess` with no fact from the user behind it stays within one point of 3.",
+                "say that it rests on that guess",
+                "When the user asks to be told what to do, or sounds worn out, put the **Recommendation** and **What would flip it** first",
                 "**What would flip it**",
                 "*rescore this* (decide-review)",
             ],
@@ -122,13 +127,17 @@ class Rules(unittest.TestCase):
                 "**Can it be undone, and at what cost?**",
                 "**The cheapest test first.**",
                 "**Yes if, no if.**",
-                "the smallest safe step is to talk to the prescriber (or a pharmacist) before changing anything",
+                "Signing a lease, accepting an offer or buying something is not such a question: decide it as usual.",
+                "Do not state as fact what would happen after the step",
+                "anything below what you paid is lost",
                 "`gain` · `lose` · `reversible?` · `cost of waiting` · `cheapest test` · `yes if` · `no if` · `first step`",
                 "*rescore this* (decide-review)",
             ],
             "decide-premortem": [
                 "**Do not re-argue the decision.**",
                 "A cause that rests on something the user did not say is marked `assumption`",
+                "Each cause opens with the user's own fact it rests on, quoted",
+                "The things that slip in unmarked:",
                 "A cause that fits any plan of this kind and uses none of the user's facts does not go in.",
                 "**Nothing invented about the place, the company, the course or the people.**",
                 "**One kill criterion**",
@@ -140,6 +149,10 @@ class Rules(unittest.TestCase):
                 "**What moved**: a table `item` · `was` · `now` · `why`",
                 "if it was `[you fill this]`, it stays `[you fill this]`",
                 "**Separate the decision from the outcome.**",
+                "0. **Which record.**",
+                "say, from the new facts only, whether it is now met, not met or still `[?]`",
+                "say whether the kill criterion was hit",
+                "A look back leaves the look-back card instead of a record.",
                 "Mark each later fact `not knowable then`.",
                 "Never say \"you should have known\" about something that was not knowable.",
                 "**Do not call the decision wrong because the outcome was bad**",
