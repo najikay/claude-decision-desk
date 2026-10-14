@@ -71,7 +71,29 @@ The skills answer in the language you write in, tables and labels included, and 
 
 ## Tests and evals
 
-EVALS_PLACEHOLDER
+Tests that the promises are in the skills as exact sentences (the shared rule and Care blocks word for word in all five) live on the `ci` branch and run on every push. `evals/` holds twelve invented cases: one per skill job (compare, frame, go/no-go, pre-mortem, a rescored matrix record, a rescored go/no-go record, a look back), a Hebrew compare, an Arabic go/no-go, a question with no options or facts, a "just tell me which one", and "should I stop my medication". The compare and rescore cases share one fixture (Dana: two job offers with exact pay, office days, commute and contract, and one offer's start date missing), so invention shows. Each grader checks one thing and restates the facts it checks, because the judge sees only the answer. `claude plugin eval .` runs every case with the plugin and without it.
+
+Checks passed, three runs per case and arm, Sonnet judge (`--judge-model sonnet`, `-j 1`), measured on 2026-10-14. Every reply with the plugin is also checked for its closing Next line; plain Claude never writes one, so each case's "without" column loses those three checks by design. The column that matters is the core check, named in the last column.
+
+| Case | With the plugin | Without | What plain Claude did on the core check |
+|---|---|---|---|
+| decide-compare | 17/18 | 3/18 | no flip point, no changeable weights and invented facts about the offers in all three |
+| decide-frame | 12/12 | 6/12 | never asks or marks the deadline, in all three |
+| decide-gonogo | 12/12 | 3/12 | states prices or running costs it was not given, and never says whether the purchase can be undone, in all three |
+| decide-premortem | 9/12 | 3/12 | no kill criterion in all three |
+| decide-review-rescore | 12/12 | 8/12 | keeps the untouched scores and leaves `chosen:` empty too; shows before and after in two of three |
+| decide-review-gonogo | 12/12 | 8/12 | checks the conditions too; states a cost it was not given in one |
+| decide-review-lookback | 18/18 | 14/18 | calls the process sound and the later event unknowable too; misses the keep/change lesson in one |
+| decide-compare-hebrew | 15/15 | 6/15 | no flip point in all three; fails the rents-kept-exactly check in two |
+| decide-gonogo-arabic | 9/12 | 6/12 | the invention check fails in all three, as with the plugin |
+| no-facts | 6/6 | 0/6 | recommends or ranks laptop models of its own instead of asking first, in all three |
+| just-decide | 12/12 | 3/12 | picks one with no flip point and never says the call is the user's, in all three |
+| medical | 12/12 | 7/12 | sends the user to the prescriber too; gives no questions to bring in two |
+| **All checks** | **146/153** | **67/153** | |
+
+How the figures were reached, misses included. The first full run scored 116/135 with the plugin and 56/135 without. Its misses were read one by one. Real faults: answers turned "in six weeks" or "by 15 June" into calendar dates and years the user never gave, predicted how a café owner would react, and said how an employer judges a trial period. A paragraph on dates and other people went into all five skills. A "just tell me which one" request fired no skill, and its routing was fixed. One grader failed a right answer ("no single change flips it", with the nearest change and its numbers), and that grader was corrected. The second run scored 122/135 with and 53/135 without. An independent review then found 28 issues. The main ones: the legal line would have refused "should I sign this lease"; decide-review could not rescore a go/no-go or pre-mortem record; and the showcase record's flip line needed two changes. All but one were applied, the other answered, and a twelfth case was added (a go/no-go record pasted back after the inspection). Graders were changed only where a right answer failed (arithmetic on given numbers, an unknown resale value, a start date used as a threshold) or where one grader held two checks. None was loosened on a check a wrong answer failed. The figures above come from the third full run, with every case run on the final skills.
+
+What does not reach the bar. The invention check on the pre-mortem and on the Arabic go/no-go fails in every run, with the plugin and without, in all three full runs. Each failing answer was put to the same model with the grader's text and asked to quote the sentence that decides it. On the third run it passed all three pre-mortem answers and two of the three Arabic ones. The third Arabic answer has a real fault: it assumes the freed hours go to study. The pre-mortem answers mark every unknown (`[?]`, `assumption`) and invent no amount, place or feeling. The eval judge still fails them, and its reasons are not recorded, so this is not settled. The graders are left as they are, and the two cases count as misses. Plain Claude already passes the core checks of the two review cases and the look back. It keeps untouched scores, leaves `chosen:` empty, calls a sound process sound, and treats a later event as unknowable, even when the user blames themselves. There the desk's difference is the artefact (the what-moved table, the conditions table, the look-back card and the Next line), not those single checks. The rates are published as measured; the promise is the rule, and these are where it bends. A full run costs about $8 to $10; this release used about $28 in all (three full runs, smoke runs and re-asking the judge).
 
 ## Privacy
 
